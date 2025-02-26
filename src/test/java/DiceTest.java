@@ -1,16 +1,23 @@
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DiceTest {
 
-    @org.junit.jupiter.api.Test
-    void roll() {
+    Dice dice = new Dice();
+
+    @Test
+    void testRoll() {
+        dice.roll();
+        assertTrue(dice.die1 >= 1 && dice.die1 <= 6);
+        assertTrue(dice.die2 >= 1 && dice.die2 <= 6);
+        assertEquals(dice.howManyRolls, 1);
     }
 
-    @org.junit.jupiter.api.Test
-    void checkDouble() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void main() {
+    @Test
+    void testCheckDouble() {
+        dice.testSetDice(1, 1);
+        assertTrue(dice.checkDouble());
     }
 }
